@@ -57,8 +57,6 @@ function getFontFamily(
   }
 }
 
-// replace with switch case
-
 type TextVariants =
   | 'headingLarge'
   | 'headingMedium'
