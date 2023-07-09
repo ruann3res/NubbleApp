@@ -1,10 +1,15 @@
+import {createText} from '@shopify/restyle';
 import {
   Text as RnText,
   TextProps as RnTextProps,
   TextStyle,
 } from 'react-native';
+import {Theme} from '../../theme/theme';
 
-interface TextProps extends RnTextProps {
+const SRText = createText<Theme>();
+type SRTextProps = React.ComponentProps<typeof SRText>;
+
+interface TextProps extends SRTextProps {
   preset?: TextVariants;
   bold?: boolean;
   italic?: boolean;
@@ -18,13 +23,16 @@ export function Text({
   italic,
   semiBold,
   style,
-  ...rest
+  ...sSRTextProps
 }: TextProps) {
   const fontFamily = getFontFamily(preset, bold, italic, semiBold);
   return (
-    <RnText style={[$fontSizes[preset], { fontFamily }, style]}>
+    <SRText
+      color="backgroundContrast"
+      style={[$fontSizes[preset], {fontFamily}, style]}
+      {...sSRTextProps}>
       {children}
-    </RnText>
+    </SRText>
   );
 }
 
@@ -68,16 +76,16 @@ type TextVariants =
   | 'paragraphCaptionSmall';
 
 const $fontSizes: Record<TextVariants, TextStyle> = {
-  headingLarge: { fontSize: 32, lineHeight: 38.4 },
-  headingMedium: { fontSize: 22, lineHeight: 26.4 },
-  headingSmall: { fontSize: 18, lineHeight: 23.4 },
+  headingLarge: {fontSize: 32, lineHeight: 38.4},
+  headingMedium: {fontSize: 22, lineHeight: 26.4},
+  headingSmall: {fontSize: 18, lineHeight: 23.4},
 
-  paragraphLarge: { fontSize: 18, lineHeight: 25.2 },
-  paragraphMedium: { fontSize: 16, lineHeight: 22.4 },
-  paragraphSmall: { fontSize: 14, lineHeight: 19.6 },
+  paragraphLarge: {fontSize: 18, lineHeight: 25.2},
+  paragraphMedium: {fontSize: 16, lineHeight: 22.4},
+  paragraphSmall: {fontSize: 14, lineHeight: 19.6},
 
-  paragraphCaption: { fontSize: 12, lineHeight: 16.8 },
-  paragraphCaptionSmall: { fontSize: 10, lineHeight: 14 },
+  paragraphCaption: {fontSize: 12, lineHeight: 16.8},
+  paragraphCaptionSmall: {fontSize: 10, lineHeight: 14},
 };
 
 const $fontFamily = {
