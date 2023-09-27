@@ -4,7 +4,7 @@ import {
   TextProps as RnTextProps,
   TextStyle,
 } from 'react-native';
-import {Theme} from '../../theme/theme';
+import {Theme} from '../../theme/Theme';
 
 const SRText = createText<Theme>();
 type SRTextProps = React.ComponentProps<typeof SRText>;

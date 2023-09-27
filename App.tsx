@@ -1,8 +1,8 @@
-import { ThemeProvider } from '@shopify/restyle';
+import {ThemeProvider} from '@shopify/restyle';
 import React from 'react';
-import { SafeAreaView, View } from 'react-native';
-import { Button, Text } from './src/Components';
-import { theme } from './src/theme/theme';
+import {SafeAreaView, View} from 'react-native';
+import {Button, Text} from './src/components';
+import {theme} from './src/theme/Theme';
 
 function App() {
   return (

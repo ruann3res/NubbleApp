@@ -1,14 +1,14 @@
-import { ActivityIndicator } from '../ActivityIndicator/Activity-indicator';
-import { TouchableOpacityBox, TouchableOpacityBoxProps } from '../Box/Box';
-import { Text } from '../Text/Text';
-import { buttonPresets } from './buttonPreset';
+import {ActivityIndicator} from '../ActivityIndicator/Activity-indicator';
+import {TouchableOpacityBox, TouchableOpacityBoxProps} from '../Box/Box';
+import {Text} from '../Text/Text';
+import {buttonPresets} from './buttonPreset';
 
-export type ButtonPreset = 'primary' | 'outline';
+export type ButtonPresetType = 'primary' | 'outline';
 
 interface ButtonProps extends TouchableOpacityBoxProps {
   title: string;
   loading?: boolean;
-  preset?: ButtonPreset;
+  preset?: ButtonPresetType;
   disabled?: boolean;
 }
 export function Button({
