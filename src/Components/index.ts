@@ -1,2 +1,4 @@
-export * from './Text/Text';
-export * from './Button/Button';
+export * from './Text';
+export * from './Button';
+export * from './Box';
+export * from './TextInput';

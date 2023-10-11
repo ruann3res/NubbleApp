@@ -1,10 +1,6 @@
 import {createText} from '@shopify/restyle';
-import {
-  Text as RnText,
-  TextProps as RnTextProps,
-  TextStyle,
-} from 'react-native';
-import {Theme} from '../../theme/Theme';
+import {TextStyle} from 'react-native';
+import {Theme} from '../../theme';
 
 const SRText = createText<Theme>();
 type SRTextProps = React.ComponentProps<typeof SRText>;
@@ -75,7 +71,7 @@ type TextVariants =
   | 'paragraphCaption'
   | 'paragraphCaptionSmall';
 
-const $fontSizes: Record<TextVariants, TextStyle> = {
+export const $fontSizes: Record<TextVariants, TextStyle> = {
   headingLarge: {fontSize: 32, lineHeight: 38.4},
   headingMedium: {fontSize: 22, lineHeight: 26.4},
   headingSmall: {fontSize: 18, lineHeight: 23.4},
@@ -88,7 +84,7 @@ const $fontSizes: Record<TextVariants, TextStyle> = {
   paragraphCaptionSmall: {fontSize: 10, lineHeight: 14},
 };
 
-const $fontFamily = {
+export const $fontFamily = {
   black: 'Satoshi-Black',
   blackItalic: 'Satoshi-BlackItalic',
   bold: 'Satoshi-Bold',
