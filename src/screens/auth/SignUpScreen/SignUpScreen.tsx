@@ -30,7 +30,6 @@ export function SignUpScreen() {
 
       <PasswordInput
         label="Senha"
-        secureTextEntry
         placeholder="Digite sua senha"
         boxProps={{mb: 's48'}}
       />
