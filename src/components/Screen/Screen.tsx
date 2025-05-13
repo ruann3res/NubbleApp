@@ -21,11 +21,6 @@ export function Screen({
   const {bottom, top} = useAppSafeArea();
   const {colors} = useAppTheme();
 
-  console.log({
-    device: Platform.OS,
-    bottom,
-  });
-
   const Container = scrollable ? ScrollViewContainer : ViewContainer;
   return (
     <KeyboardAvoidingView
