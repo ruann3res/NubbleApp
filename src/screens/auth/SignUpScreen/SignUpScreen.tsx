@@ -1,15 +1,25 @@
 import React from 'react';
 import {Button} from '../../../components/Button/Button';
-import {Icon} from '../../../components/Icon/Icon';
 import {PasswordInput} from '../../../components/PasswordInput/PasswordInput';
 import {Screen} from '../../../components/Screen/Screen';
 import {Text} from '../../../components/Text/Text';
 import {TextInput} from '../../../components/TextInput/TextInput';
+import { useResetNavigationSuccess } from '../../../hooks/useResetNavigationSuccess';
 
 export function SignUpScreen() {
+  const {resetNavigation} = useResetNavigationSuccess();
+  
   function submitForm() {
-    // TODO: implementar
+    resetNavigation({
+      title: 'Conta criada com sucesso',
+      description: 'Agora é só fazer login e aproveitar',
+      icon: {
+        name: 'checkRound',
+        color: 'greenSuccess',
+      },
+    });
   }
+
   return (
     <Screen canGoBack scrollable>
       <Text preset="headingLarge" mb="s32">
