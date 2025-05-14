@@ -7,7 +7,16 @@ import {Screen} from '../../../components/Screen/Screen';
 import {Text} from '../../../components/Text/Text';
 import {TextInput} from '../../../components/TextInput/TextInput';
 
-export function LoginScreen() {
+import type {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import { RootStackParamList } from '../../../routes/Routes';
+
+type ScreenProps = NativeStackNavigationProp<RootStackParamList, 'LoginScreen'>;
+
+export function LoginScreen({navigation}: {navigation: ScreenProps}) {
+  function handleCreateAccount() {
+    navigation.navigate('SignUpScreen');
+  }
+
   return (
     <Screen scrollable>
       <Text marginBottom="s8" preset="headingLarge">
@@ -30,12 +39,17 @@ export function LoginScreen() {
         boxProps={{mb: 's10'}}
       />
 
-      <Text color="primary" preset="paragraphSmall" bold>
+      <Text color="primary" preset="paragraphSmall" bold onPress={() => navigation.navigate('ForgotPasswordScreen')}>
         Esqueci minha senha
       </Text>
 
       <Button marginTop="s48" title="Entrar" />
-      <Button preset="outline" marginTop="s12" title="Criar uma conta" />
+      <Button
+        onPress={handleCreateAccount}
+        preset="outline"
+        marginTop="s12"
+        title="Criar uma conta"
+      />
     </Screen>
   );
 }
